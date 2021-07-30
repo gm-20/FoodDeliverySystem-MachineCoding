@@ -14,12 +14,13 @@ public class RestroManager {
     private static final List<Restro> restroList = new ArrayList<>();
 
 
-    public void createRestro(Integer resId, Map<String,Item> itemList){
+    public void createRestro(Integer resId, Map<String,Item> itemList,Float rating){
 
         Restro restro = Restro.builder()
                 .resId(resId)
                 .noOfOrders(0)
                 .items(itemList)
+                .rating(rating)
                 .build();
 
         restroList.add(restro);

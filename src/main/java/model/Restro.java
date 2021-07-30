@@ -14,4 +14,5 @@ public class Restro {
     private Integer resId;
     private Map<String,Item> items;
     private Integer noOfOrders;
+    private Float rating;
 }

@@ -1,7 +1,6 @@
 import model.Customer;
 import model.Item;
-import services.CustomerManager;
-import services.RestroManager;
+import services.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -19,19 +18,19 @@ public class Driver {
         Map<String,Item> itemList = new HashMap<>();
         itemList.put("IDLI",Item.builder().name("IDLI").price(20).build());
         itemList.put("DOSA",Item.builder().name("DOSA").price(50).build());
-        restroManager.createRestro(1,itemList);
+        restroManager.createRestro(1,itemList,4.5F);
 
 
         itemList = new HashMap<>();
-        itemList.put("CHICKEN",Item.builder().name("CHICKEN").price(20).build());
-        itemList.put("FISH",Item.builder().name("FISH").price(50).build());
-        restroManager.createRestro(2,itemList);
+        itemList.put("RICE",Item.builder().name("RICE").price(20000).build());
+        itemList.put("DAL",Item.builder().name("DAL").price(50000).build());
+        restroManager.createRestro(2,itemList,5F);
 
 
         itemList = new HashMap<>();
-        itemList.put("RICE",Item.builder().name("RICE").price(20).build());
-        itemList.put("DAL",Item.builder().name("DAL").price(50).build());
-        restroManager.createRestro(3,itemList);
+        itemList.put("RICE",Item.builder().name("RICE").price(200).build());
+        itemList.put("DAL",Item.builder().name("DAL").price(500).build());
+        restroManager.createRestro(3,itemList,10F);
 
 
 
@@ -46,12 +45,16 @@ public class Driver {
                         .name("DAL")
                 .build());
 
+
+        Context context = new Context(new LowCost());
+
         Customer customer = Customer.builder()
                 .cId("1")
                 .name("Customer-1")
                 .itemList(items)
-                .orderId(customerManager.createOrder(items))
+                .orderId(customerManager.createOrder(items,context))
                 .build();
+
 
     }
 }

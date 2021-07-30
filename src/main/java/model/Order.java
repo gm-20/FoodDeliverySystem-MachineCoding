@@ -14,5 +14,6 @@ public class Order {
     private OrderLifeCycle status;
     private List<Item> itemList;
     private Integer orderTotal;
+    private Integer restroId;
 
 }
